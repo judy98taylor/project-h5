@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>project-h5</title>
+  <script>
+    (function (win) {
+      var doc = win.document,
+        html = doc.documentElement,
+        dpr = win.devicePixelRatio || 1;
+      var baseWidth = 1080,
+        grids = baseWidth / 100,
+        resizeEvt = 'orientationchange' in win ? 'orientationchange' : 'resize',
+        recalc = function () {
+          var clientWidth = html.getBoundingClientRect().width || 540;
+          if (dpr == 1 || clientWidth > 1080) {
+            clientWidth = 1080
+          };
+          html.style.fontSize = clientWidth / grids + 'px';
+        },
+        resetBodyFontSize = function () {
+          // doc.body && (doc.body.style.fontSize = '12px');
+        };
+      // console.log(html, grids, dpr)
+      html.setAttribute("data-dpr", dpr);
+      if (!doc.addEventListener) return;
+      win.addEventListener(resizeEvt, recalc, false);
+      "complete" === doc.readyState ? resetBodyFontSize() : doc.addEventListener(
+        'DOMContentLoaded',
+        function () {
+          setTimeout(recalc);
+          resetBodyFontSize();
+        }, false);
+    })(window);
+
+  </script>
+</head>
+
+<body>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+</body>
+
+</html>

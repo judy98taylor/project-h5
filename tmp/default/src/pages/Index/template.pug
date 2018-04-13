@@ -1,0 +1,31 @@
+.viewport
+  img.logo(src="./images/logo.svg", alt="logo")
+  h1 {{ $t("p1.hello") }}
+  h1 {{ $t("p2.hello") }}
+  button(@click="changeLang") change lang
+  .input-box
+    img.icon(src="./images/g.png", alt="icon")
+    input(type="text" placeholder="Search or enter web address")
+  nav.nav(v-if="listTopSites.length")
+    li(v-for="i in listTopSites")
+      a(:href="i.link.uri")
+        img.img(:src="i.icon", alt="icon")
+        p.title.tof {{i.name}}
+  template(v-if="listCards.length")
+    .card-box(v-for="iC in listCards")
+      .title-box
+        h6.l(:style="{backgroundImage:`url(${iC.icon})`}") {{iC.name}}
+        .r(@click="switchExpand(iC)" ,:class="{'collapse':!iC.isExpand}" v-if="iC.cells.length>3")
+      ul.ul(:class="{'nokosu3':(!iC.isExpand)}")
+        li(v-for="(ii,$indexII) in iC.cells" v-show="iC.cells.length")
+          //- 1.左右 2.上下 3. 单图 4.独行单图
+          //- icon
+          template(v-if="ii.type===1")
+            a(:href="ii.link.uri")
+              img.img(:src="ii.icon.uri", alt="1" )
+              p.title.tof(:style="{'color': ii.title.color || '#000'}") {{ii.title.text}}
+          //- pic
+          template(v-if="ii.type===3")
+            a.poster-box(:href="ii.link.uri" )
+              img.poster(:src="ii.icon.uri", alt="3" )
+  p(style="width:10.8rem") {{msg.length}}

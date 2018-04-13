@@ -1,0 +1,140 @@
+.viewport {
+  margin: 0 auto;
+  padding: 0.08rem 0 1rem;
+  background: #edecec;
+  width: 10.8rem;
+  .logo {
+    display: block;
+    margin: 1.9rem auto 1.238rem;
+    width: 6.325rem;
+    height: 2.072rem;
+  }
+  .input-box {
+    display: flex;
+    margin: 0 auto;
+    padding: 0.35rem;
+    width: 9.9rem-0.35rem * 2;
+    height: 0.54rem;
+    border-radius: 0.15rem;
+    background: #fff;
+    .icon {
+      margin-right: 0.3rem;
+      width: 0.54rem;
+      height: 0.54rem;
+    }
+    input {
+      flex: 1;
+      height: 0.54rem;
+      border: none;
+      color: #848995;
+      font-family: Roboto;
+      font-size: 0.36rem;
+    }
+    input::-webkit-input-placeholder {
+      color: #848995;
+      font-family: Roboto;
+      font-size: 0.36rem;
+    }
+  }
+  .nav {
+    margin: 0 0.4rem;
+    padding-bottom: 0.44rem;
+    display: flex;
+    flex-wrap: wrap;
+    li {
+      text-align: center;
+      margin-top: 0.8rem;
+      width: 2rem;
+    }
+    .img {
+      margin: 0 auto;
+      display: block;
+      width: 1.18rem;
+      height: 1.18rem;
+      border-radius: 0.2rem;
+      border: 1px solid #e2e2e2;
+    }
+    .title {
+      margin-top: 0.2rem;
+      font-size: 0.34rem;
+      line-height: 0.4rem;
+      font-family: Roboto;
+      color: #515151;
+    }
+  }
+  .card-box {
+    margin: 0.4rem auto 0;
+    padding: 0.35rem;
+    width: 9.9rem-0.35rem * 2;
+    background: #fff;
+    border-radius: 0.2rem;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.16);
+    .title-box {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      .l {
+        line-height: 0.54rem;
+        font-family: Roboto;
+        font-size: 0.44rem;
+        color: #7f7f7f;
+        background: url('./images/video.svg') no-repeat left center;
+        background-size: contain;
+        padding-left: 0.8rem;
+        flex: 1;
+      }
+      .r {
+        width: 0.54rem;
+        height: 0.54rem;
+        // 默认展开
+        background: url('./images/up.svg') no-repeat left center;
+        background-size: 80%;
+        transform: rotate3d(1, 0, 0, 0deg);
+        transition: transform 0.3s ease;
+      }
+      .r.collapse {
+        transition: transform 0.3s ease;
+        transform: rotate3d(1, 0, 0, 180deg);
+      }
+    }
+    .ul.nokosu3 {
+      // transition: all 0.3s ease;
+      max-height: 1.5rem;
+      overflow: hidden;
+    }
+    .ul {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      // transition: max-height 0.3s ease;
+      li {
+        width: 3rem;
+        margin-right: 0.1rem;
+      }
+      li:nth-child(3n) {
+        margin-right: 0;
+      }
+      a {
+        display: flex;
+        margin-right: 0.1rem;
+        margin-top: 0.75rem;
+      }
+      a.poster-box {
+        display: block;
+        width: 2.94rem;
+      }
+      .img {
+        width: 0.74rem;
+        height: 0.74rem;
+        border-radius: 50%;
+        box-shadow: 0 0 0.04rem 0 rgba(0, 0, 0, 0.5);
+      }
+      .title {
+        font-family: Roboto;
+        font-size: 0.34rem;
+        line-height: 0.74rem;
+        margin: 0 0.2rem;
+      }
+    }
+  }
+}
